@@ -6,12 +6,17 @@
 
         <p><b>Rating:</b>
             <span class="badge badge-info"> {{$pelicula->rating}} </span>
-        <b>Premios:</b>
+        </p>
+        <p><b>Premios:</b>
             <span class="badge badge-secondary"> {{$pelicula->awards}} </span>
-        <b>Duración:</b>
+        </p>
+        <p><b>Duración:</b>
             <span class="badge badge-success"> {{$pelicula->length}} min </span>
         </p>
-        <a href="edit/{{$pelicula->id}}">Editar</a>
+        <p><b>Género:</b>
+            <span class="badge badge-success"> {{$pelicula->genero->name}} </span>
+        </p>
+        {{-- <p><span> Actores: {{$pelicula->actores->first_name}} </span></p> --}}
     </div>
     <a href="/peliculas">
         <div class="btn btn-info mt-5">Volver</div>

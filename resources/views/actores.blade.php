@@ -3,28 +3,12 @@
 @section('content')
 <h1>Actores</h1>
 <div class="mt-5 mb-5">
-    <a href="{{route('actores.agregarActor')}}">
-    <div class="btn btn-primary">Agregar un actor
-    </div></a>
-    {{-- <form action="{{route('actor.buscar')}}" method="post"> --}}
-    {{csrf_field()}}
-        <div class="input-group mb-3">
-
-            <input type="text" name="nombre" value="" class="form-control"  placeholder="Busca un actor" aria-label="Busca un actor" value="buscar"
-
-            aria-describedby="button-addon2">
-            <div class="input-group-append">
-
-            <a class="btn btn-outline-warning" href="/actores">Limpiar</a>
-
-            <button class="btn btn-outline-success" type="submit" id="button-addon2">Buscar</button>
-
-                </button>
-
-            </div>
-        </div>
-        </form>
+    <div class="mt-5 mb-5">
+        <a href="{{route('actores.agregarActor')}}">
+            <div class="btn btn-primary">Agregar un actor</div>
+        </a>
     </div>
+
 
     <div class="card-columns">
         @forelse ($actores as $actor)

@@ -25,14 +25,6 @@
             <div class="btn btn-info mt-5">Volver</div>
         </a>
 
-        <a href=" {{route('actor.editar', $actor->id)}} ">
-            <div class="btn btn-warning mt-5">Editar</div>
-        </a>
-
-        <form action="{{route('actor.delete', $actor->id)}}" method="post">
-            {{csrf_field()}}
-            <input type="hidden" name="id" value="{{$actor->id}}">
-            <input class="btn btn-danger mt-5" type="submit" value="Eliminar este actor">
-        </form>
+        
 
 @endsection

@@ -21,8 +21,9 @@ class GenerosController extends Controller
     public function generoPeliculas()
     {
         $generos = Genre::all();
-        return view ("editarPelicula", ['generos' => $generos]);
+        return view ("{{peliculas.id}}", ['generos' => $generos]);
     }
+
     /**
      * Show the form for creating a new resource.
      *

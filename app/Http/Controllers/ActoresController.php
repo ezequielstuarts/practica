@@ -55,31 +55,4 @@ class ActoresController extends Controller
         return view ("buscar", ['actor' => $actor] );
     }
 
-    public function edit($id)
-    {
-        $actor = Actor::find($id);
-        $peliculas = Movie::all();
-        return view('editar', ['actor' => $actor, 'peliculas' => $peliculas] );
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        $actor = Actor::find($id);
-        $diff = array_diff($request->toArray(), $actor->toArray());
-        $basename = basename($request->file("poster")->store("public"));
-        if ($request->has('poster')) {
-            $diff["poster"] = $basename;
-        }
-        $actor->update($diff);
-        return redirect()->route('actor', ['actor' => $actor])->with('mensaje', 'Actor Actualizado');
-    }
-
-    public function destroy(Request $formulario)
-    {
-        $id = $formulario['id'];
-        $actor = Actor::find($id);
-        $actor->delete();
-        return redirect('/actores');
-    }
 }

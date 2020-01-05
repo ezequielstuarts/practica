@@ -53,13 +53,30 @@ class PeliculasController extends Controller
     public function edit($id)
     {
         $pelicula = Movie::find($id);
-        return view('editarPelicula', ['pelicula' => $pelicula] );
+        return view('/editarPelicula', ['pelicula' => $pelicula] );
     }
 
     
     public function update(Request $request, $id)
     {
-        //
+            // $reglas = [
+            //     "title" => "required|string",
+            //     "subtitle" => "required|string",
+            //     "favorite_movie_id" => "required"
+            // ];
+            // $mensajes = [
+            //     "string" => "El campo :attribute debe ser un nombre.",
+            //     "required" => "El campo :attribute es necesario.",
+            // ];
+
+            // $this->validate($request, $reglas, $mensajes);
+
+            $pelicula = Movie::find($id);
+            $diff = array_diff($request->toArray(), $pelicula->toArray());
+
+            $pelicula->update($diff);
+            return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada');
+
     }
 
     
