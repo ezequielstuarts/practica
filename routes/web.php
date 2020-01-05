@@ -26,10 +26,19 @@ Route::get('/peliculas', 'PeliculasController@index')->name('peliculas');
 
 Route::get('/pelicula/{id}', "PeliculasController@show")->name('pelicula.{id}');
 
-Route::get('/pelicula/edit/{id}', 'PeliculasController@edit')->name('pelicula.edit.{id}');
-Route::post('/pelicula/edit/{id}', 'PeliculasController@edit')->name('pelicula.edit.{id}');
+Route::get('/pelicula/edit/{id}', "PeliculasController@edit")->name('pelicula.edit');
 
-Route::patch('/pelicula/edit/{id}', 'PeliculasController@update')->name('pelicula.update');
+Route::patch('/pelicula/edit/{id}', "PeliculasController@update")->name('pelicula.edit');
+
+
+
+
+
+
+
+
+
+
 
 
 

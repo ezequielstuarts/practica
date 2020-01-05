@@ -18,10 +18,10 @@ class GenerosController extends Controller
         return view ("generos", ['generos' => $generos]);
     }
     
-    public function generoPeliculas()
+    public function generosPeliculas()
     {
         $generos = Genre::all();
-        return view ("{{peliculas.id}}", ['generos' => $generos]);
+        return view ("pelicula/edit", ['generos' => $generos]);
     }
 
     /**
