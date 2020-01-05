@@ -16,7 +16,13 @@
         <p><b>Género:</b>
             <span class="badge badge-success"> {{$pelicula->genero->name}} </span>
         </p>
-        {{-- <p><span> Actores: {{$pelicula->actores->first_name}} </span></p> --}}
+
+        <p><b>Actores:</b></p>
+        <ul>
+            @foreach ($pelicula->actores as $actor)
+                <li>{{$actor->first_name}} {{$actor->last_name}}</li>
+            @endforeach
+        </ul>
     </div>
     <a href="/peliculas">
         <div class="btn btn-info mt-5">Volver</div>

@@ -12,7 +12,11 @@ class Movie extends Model
     protected $fillable = ['title', 'rating', 'awards','genre_id', 'length', 'id'];
 
     public function genero() {
-        return $this->belongsTo(Genre::Class, 'genre_id');
+        return $this->belongsTo("App\Genre", 'genre_id');
+    }
+
+    public function actores() {
+        return $this->belongsToMany("App\Actor", "actor_movie", "movie_id", "actor_id");
     }
 
 }

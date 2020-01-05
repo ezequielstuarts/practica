@@ -14,7 +14,10 @@ class Actor extends Model
     ];
 
     public function peliculaFavorita() {
-        return $this->belongsTo(Movie::Class, 'favorite_movie_id');
+        return $this->belongsTo("App\Movie", 'favorite_movie_id');
     }
     
+    public function peliculas() {
+        return $this->belongsToMany("App\Movie", "actor_movie", "actor_id", "movie_id");
+    }
 }

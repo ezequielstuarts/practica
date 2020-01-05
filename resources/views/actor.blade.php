@@ -16,7 +16,12 @@
             <p><b>Película favorita:</b> {{$actor->peliculaFavorita->title}} </p>
             @endif
             <p><b>Rating:</b><span class="badge badge-info"> {{$actor->rating}} </span></p>
-            <p><b>Peliculas que actuo:</b><span class="badge badge-info"> {{$actor->peliculasQueActuo}} </span></p>
+            <p><b>Peliculas que actuo:</b></p>
+                <ul>
+                    @foreach ($actor->peliculas as $pelicula)
+                        <li>{{$pelicula->title}} </li>
+                    @endforeach
+                </ul>
         </div>
             
 
