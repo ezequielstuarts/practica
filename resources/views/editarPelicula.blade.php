@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h1>Editar pelicula</h1>
-    <form action="/pelicula/edit/{{$pelicula->id}}" method="post" class="mt-5"> 
+    <form action="/pelicula/edit/{{$pelicula->id}}" method="post" class="mt-5">
         @method("patch")
         {{csrf_field()}}
                 <div class="form-row">
@@ -17,9 +17,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="release_date">Fecha de lanzamiento</label>
-                        
-                        <input type="date" class="form-control" id="release_date" name="release_date" value="">
-                        
+                        <input type="date" class="form-control" id="release_date" name="release_date" value="{{$pelicula->release_date}}">
                     </div>
 
                     <div class="form-group col-md-6">
@@ -34,7 +32,7 @@
                         <input type="text" class="form-control" name="awards" value="{{$pelicula->awards}}">
                         <p class="text-danger pl-1 pt-1">{{ $errors->first('awards') }}</p>
                     </div>
-                    
+
                     <div class="form-group col-md-6">
                         <label for="awards">Género</label>
                         <select class="custom-select" name="genre_id">
@@ -43,7 +41,7 @@
                             @foreach ($generos as $genero)
                                 <option value={{$genero->id}}>{{$genero->name}}</option>
                             @endforeach
-                            
+
                           </select>
 
                     </div>
@@ -52,7 +50,7 @@
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a class="btn btn-warning" href="{{route('peliculas')}}">Cancelar</a>
                 </div>
-        
+
           </form>
 
 @endsection

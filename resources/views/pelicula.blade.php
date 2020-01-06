@@ -30,7 +30,7 @@
     <a href="/peliculas">
         <div class="btn btn-info mt-5">Volver</div>
     </a>
-    
+
 <a href="{{route('pelicula.edit', $pelicula->id)}}">
         <div class="btn btn-info mt-5">Editar</div>
     </a>

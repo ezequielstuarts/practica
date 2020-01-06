@@ -25,11 +25,14 @@ class PeliculasController extends Controller
         $pelicula = Movie::find($id);
         return view ("pelicula", ['pelicula' => $pelicula]);
     }
-    
+
     public function edit($id)
     {
         $pelicula = Movie::find($id);
         $generos = Genre::All();
+        $fecha = $pelicula->release_date;
+        $fecha = date('d-m-Y',strtotime($pelicula->release_date));
+        $pelicula->release_date = $fecha;
         return view ("editarPelicula", ['pelicula' => $pelicula, 'generos' => $generos]);
     }
 

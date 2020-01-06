@@ -9,7 +9,7 @@ class Movie extends Model
     public $table = "movies";
     //public $primarykey = "id";
     //public $timestamps = "";
-    protected $fillable = ['title', 'rating', 'awards','genre_id', 'length', 'id'];
+    protected $fillable = ['title', 'rating', 'awards','genre_id', 'length', 'id', "release_date"];
 
     public function genero() {
         return $this->belongsTo("App\Genre", 'genre_id');
