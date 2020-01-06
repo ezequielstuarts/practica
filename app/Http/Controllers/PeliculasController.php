@@ -37,10 +37,8 @@ class PeliculasController extends Controller
     {
 
             $pelicula = Movie::find($id);
+            $diff["movie_id"] = $request->movie_id;
             $diff = array_diff($request->toArray(), $pelicula->toArray());
-            
-            
-            
             $pelicula->update($diff);
             return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
 

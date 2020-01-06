@@ -23,7 +23,7 @@
                         <p class="card-text">Más Info</p>
                     </a>
                     @if ($actor->updated_at)
-                        <p class="card-text"><small class="text-muted">Última modificación {{$actor->updated_at}} </small></p>
+                        <p class="card-text"><small class="text-muted">Última modificación {{date('d-m-Y', strtotime($actor->update_at))}} </small></p>
                     @endif
               </div>
             </div>

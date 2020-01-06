@@ -7,6 +7,9 @@
         <p><b>Rating:</b>
             <span class="badge badge-info"> {{$pelicula->rating}} </span>
         </p>
+        <p><b>Lamzamiento el:</b>
+            <span class="badge badge-info">{{date('d-m-Y', strtotime($pelicula->release_date))}} </span>
+        </p>
         <p><b>Premios:</b>
             <span class="badge badge-secondary"> {{$pelicula->awards}} </span>
         </p>
@@ -17,7 +20,7 @@
             <span class="badge badge-success"> {{$pelicula->genero->name}} </span>
         </p>
 
-        <p><b>Actores:</b></p>
+        <p><b>Reparto:</b></p>
         <ul>
             @foreach ($pelicula->actores as $actor)
                 <li>{{$actor->first_name}} {{$actor->last_name}}</li>

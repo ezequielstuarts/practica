@@ -17,9 +17,11 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="release_date">Fecha de lanzamiento</label>
-                        <input type="date" class="form-control" name="release_date" value="{{$pelicula->release_date}}">
-                        <p class="text-danger pl-1 pt-1">{{ $errors->first('awards') }}</p>
+                        
+                        <input type="date" class="form-control" id="release_date" name="release_date" value="">
+                        
                     </div>
+
                     <div class="form-group col-md-6">
                         <label for="length">Duracion</label>
                         <input type="text" class="form-control" name="length" value="{{$pelicula->length}}">
