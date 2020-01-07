@@ -26,6 +26,14 @@
                 <li>{{$actor->first_name}} {{$actor->last_name}}</li>
             @endforeach
         </ul>
+
+
+        <ul>
+            @foreach ($pelicula->actores as $actor)
+                <li>{{$actor->peliculas}} </li>
+            @endforeach
+        </ul>
+
     </div>
     <a href="/peliculas">
         <div class="btn btn-info mt-5">Volver</div>

@@ -9,14 +9,14 @@
                 <h4>{{ session('mensaje') }}</h4>
             </div>
         @endif
-    
+
         <div class="col-md-12 mt-5">
             <h4>{{$actor->first_name}} {{$actor->last_name}}</h4>
             @if ($actor->peliculaFavorita)
             <p><b>Película favorita:</b> {{$actor->peliculaFavorita->title}} </p>
             @endif
             <p><b>Rating:</b><span class="badge badge-info"> {{$actor->rating}} </span></p>
-            
+
             @if ($actor->peliculas)
             <p><b>Peliculas que actuo:</b></p>
             <ul>
@@ -25,15 +25,15 @@
                 @endforeach
             </ul>
             @endif
-            
+
         </div>
-            
+
 
 
         <a href="/actores">
             <div class="btn btn-info mt-5">Volver</div>
         </a>
 
-        
+
 
 @endsection

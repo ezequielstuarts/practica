@@ -15,10 +15,6 @@ class PeliculasController extends Controller
         return view ("peliculas", ['peliculas' => $peliculas]);
     }
 
-    public function indexfav(){
-        $peliculas = Movie::all();
-        return view ("agregarActor", ['peliculas' => $peliculas]);
-    }
 
     public function show($id)
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
+use App\Movie;
 
 class ActoresController extends Controller
 {
@@ -11,6 +12,11 @@ class ActoresController extends Controller
     {
         $actores = Actor::orderBy('first_name', 'ASC')->paginate(15);;
         return view ("actores", ['actores' => $actores]);
+    }
+
+    public function create() {
+        $peliculas = Movie::all();
+        return view ("agregarActor", ['peliculas' => $peliculas]);
     }
 
     public function store(Request $request)

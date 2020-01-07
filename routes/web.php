@@ -33,21 +33,9 @@ Route::patch('/pelicula/edit/{id}', "PeliculasController@update")->name('pelicul
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/actores', 'ActoresController@index')->name('actores');
 
-Route::get('/actores/agregarActor', 'PeliculasController@indexfav')->name('actores.agregarActor');
+Route::get('/actores/agregarActor', 'ActoresController@create')->name('actores.agregarActor');
 
 Route::post('/actores/agregarActor', "ActoresController@store")->name('actores.agregarActor');
 
