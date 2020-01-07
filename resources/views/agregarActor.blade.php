@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <h1>Agregar Actor</h1>
 
     <form action="/actores/agregarActor" method="post" enctype="multipart/form-data" class="mt-5">
@@ -24,7 +24,15 @@
             <div class="form-group col-md-6">
                 <select class="custom-select" placeholder="" name="pelicula_favorita">            <option value="">Película Favorita</option>
                     @foreach ($peliculas as $peli)
-                        <option value="{{$peli->id}}">{{ $peli->title }}</option>    
+                        <option value="{{$peli->id}}">{{ $peli->title }}</option>
+                    @endforeach
+                  </select>
+            </div>
+            <div class="form-group col-md-6">
+                <select class="custom-select" placeholder="" name="trabajo">
+                    <option value="">Peliculas en las que trabajo</option>
+                    @foreach ($peliculas as $peli)
+                        <option value="{{$peli->id}}">{{ $peli->title }}</option>
                     @endforeach
                   </select>
             </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Actor;
 use App\Movie;
+use App\ActorMovie;
+
 
 class ActoresController extends Controller
 {
@@ -37,12 +39,17 @@ class ActoresController extends Controller
         $this->validate($request, $reglas, $mensajes);
 
         $actorNuevo = new Actor();
+        $peliculas = new ActorMovie();
 
         $actorNuevo->first_name = $request["first_name"];
         $actorNuevo->last_name = $request["last_name"];
         $actorNuevo->rating = $request["rating"];
         $actorNuevo->favorite_movie_id = $request["pelicula_favorita"];
+        $peliculas->movie_id = $request["trabajo"];
+        $peliculas->actor_id = 11;
+
         $actorNuevo->save();
+        $peliculas->save();
         return redirect('/actores');
     }
 
