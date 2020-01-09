@@ -46,6 +46,19 @@
 
                     </div>
                 </div>
+
+                <div class="form-group col-md-6">
+                    <option value="">Películas n las que trabajo</option>
+                    <span>Puede seleccionar varios con CTRL</span>
+                    <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;">
+                        @foreach ($actores as $actor)
+
+                        <option value="{{$actor->id}}">{{$actor->first_name}}{{$actor->last_name}}</option>
+                    @endforeach
+                    </select>
+                </div>
+
+
                 <div class="mt-3 float-right">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a class="btn btn-warning" href="{{route('peliculas')}}">Cancelar</a>

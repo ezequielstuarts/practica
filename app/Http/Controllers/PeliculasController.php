@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Genre;
+use App\Actor;
 
 
 class PeliculasController extends Controller
@@ -26,10 +27,11 @@ class PeliculasController extends Controller
     {
         $pelicula = Movie::find($id);
         $generos = Genre::All();
+        $actores = Actor::All();
         $fecha = $pelicula->release_date;
         $fecha = date('d-m-Y',strtotime($pelicula->release_date));
         $pelicula->release_date = $fecha;
-        return view ("editarPelicula", ['pelicula' => $pelicula, 'generos' => $generos]);
+        return view ("editarPelicula", ['pelicula' => $pelicula, 'generos' => $generos, 'actores' => $actores]);
     }
 
     public function update(Request $request, $id)
