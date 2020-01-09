@@ -10,11 +10,6 @@ use App\Genre;
 
 class WelcomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $peliculas = Movie::orderBy('rating', 'DESC')->paginate(6);

@@ -4,7 +4,7 @@
 <div class="container mb-5">
     <div class="titulos">
         <p>Peliculas con mejor Rating
-        <span> <a href="/peliculas">Ver Mas</a></span></p>
+        <span> <a href="/peliculas">Ver Mas > </a></span></p>
     </div>
     <div class="card-columns">
         @forelse ($peliculas as $pelicula)
@@ -17,7 +17,10 @@
                     </a>
                 </h5>
                     <span> Rating: {{$pelicula->rating}} </span>
-                    <p> Ultima Acualización: {{$pelicula->update_at}} </p>
+
+                    @if ($pelicula->updated_at)
+                        <p> Ultima Acualización: {{$pelicula->updated_at->diffForHumans()}} </p>
+                    @endif
             </div>
         </div>
         @empty
@@ -26,7 +29,7 @@
     </div>
     <div class="titulos">
         <p>Ultimos Actores
-        <span> <a href="/actores">Ver Mas</a></span></p>
+        <span> <a href="/actores">Ver Mas > </a></span></p>
     </div>
         <div class="card-columns">
             @forelse ($actores as $actor)
@@ -47,7 +50,7 @@
 
         <div class="titulos">
             <p>Ultimos Generos
-                <span> <a href="/generos">Ver Mas</a></span></p>
+                <span> <a href="/generos">Ver Mas > </a></span></p>
         </div>
             <div class="card-columns">
                 @forelse ($generos as $genero)
