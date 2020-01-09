@@ -39,25 +39,30 @@ class ActoresController extends Controller
         $this->validate($request, $reglas, $mensajes);
 
         $actorNuevo = new Actor();
-        $peliculas = new ActorMovie();
 
         $actorNuevo->first_name = $request["first_name"];
         $actorNuevo->last_name = $request["last_name"];
         $actorNuevo->rating = $request["rating"];
         $actorNuevo->favorite_movie_id = $request["pelicula_favorita"];
-        $peliculas->movie_id = $request["trabajo"];
-        $peliculas->actor_id = 11;
+
+
 
         $actorNuevo->save();
 
         $actores = Actor::all();
         $lastId = $actores->last()->id;
 
-        $peliculas->movie_id = $request["trabajo"];
-        $peliculas->actor_id = $lastId;
+        $pelisActuadas = $request["peliculasActuadas"];
+        for ($i = 0; $i < count($pelisActuadas); $i++)
+        {
+            $actor_movie = new ActorMovie();
+            $actor_movie->movie_id = $pelisActuadas[$i];
+            $actor_movie->actor_id = $lastId;
+            $actor_movie->save();
+        }
 
 
-        $peliculas->save();
+
         return redirect()->route('actor', [$lastId]);
 
     }
