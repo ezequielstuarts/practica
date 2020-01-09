@@ -28,18 +28,12 @@
         </ul>
 
 
-        <ul>
-            @foreach ($pelicula->actores as $actor)
-                <li>{{$actor->peliculas}} </li>
-            @endforeach
-        </ul>
-
     </div>
     <a href="/peliculas">
         <div class="btn btn-info mt-5">Volver</div>
     </a>
 
-<a href="{{route('pelicula.edit', $pelicula->id)}}">
+    <a href="{{route('pelicula.edit', $pelicula->id)}}">
         <div class="btn btn-info mt-5">Editar</div>
     </a>
 

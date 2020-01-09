@@ -29,6 +29,13 @@
                   </select>
             </div>
             <div class="form-group col-md-6">
+                <select multiple="multiple" name="peliculas" id="peliculas" style="width:100%;height:200px;">
+                    @foreach ($peliculas as $peli)
+                    <option value="{{$peli->id}}">{{ $peli->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-6">
                 <select class="custom-select" placeholder="" name="trabajo">
                     <option value="">Peliculas en las que trabajo</option>
                     @foreach ($peliculas as $peli)
@@ -36,6 +43,10 @@
                     @endforeach
                   </select>
             </div>
+
+
+
+
 
         </div>
         <div class="mt-3 float-right">
@@ -45,5 +56,30 @@
         </div>
 
   </form>
+  <div class="container">
+    <br />
+    <h2 align="center">How to Use Bootstrap Select Plugin with PHP JQuery</h2>
+    <br />
+    <div class="col-md-4" style="margin-left:200px;">
+     <form method="post" id="multiple_select_form">
+      <select name="framework" id="framework" class="form-control selectpicker" data-live-search="true" multiple>
+       <option value="Laravel">Laravel</option>
+       <option value="Symfony">Symfony</option>
+       <option value="Codeigniter">Codeigniter</option>
+       <option value="CakePHP">CakePHP</option>
+       <option value="Zend">Zend</option>
+       <option value="Yii">Yii</option>
+       <option value="Slim">Slim</option>
+      </select>
+      <br /><br />
+      <input type="hidden" name="hidden_framework" id="hidden_framework" />
+      <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+     </form>
+     <br />
+
+    </div>
+   </div>
+
+
 
 @endsection

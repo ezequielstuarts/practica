@@ -49,8 +49,17 @@ class ActoresController extends Controller
         $peliculas->actor_id = 11;
 
         $actorNuevo->save();
+
+        $actores = Actor::all();
+        $lastId = $actores->last()->id;
+
+        $peliculas->movie_id = $request["trabajo"];
+        $peliculas->actor_id = $lastId;
+
+
         $peliculas->save();
-        return redirect('/actores');
+        return redirect()->route('actor', [$lastId]);
+
     }
 
 
@@ -67,5 +76,6 @@ class ActoresController extends Controller
         $actor = Actor::where('first_name', 'like', '%' . $nombre . '%')->orWhere ('last_name', 'like', '%' . $nombre . '%')->get();
         return view ("buscar", ['actor' => $actor] );
     }
+
 
 }
