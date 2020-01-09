@@ -1,100 +1,69 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>DB Peliculas</title>
+@section('content')
+<div class="container mb-5">
+    <div class="titulos">
+        <p>Peliculas con mejor Rating
+        <span> <a href="/peliculas">Ver Mas</a></span></p>
+    </div>
+    <div class="card-columns">
+        @forelse ($peliculas as $pelicula)
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-                
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="pelicula/{{$pelicula->id}}">
+                        {{$pelicula->title}}
+                    </a>
+                </h5>
+                    <span> Rating: {{$pelicula->rating}} </span>
+                    <p> Ultima Acualización: {{$pelicula->update_at}} </p>
             </div>
         </div>
-    </body>
-</html>
+        @empty
+        <h2>No hay Peliculas</h2>
+        @endforelse
+    </div>
+    <div class="titulos">
+        <p>Ultimos Actores
+        <span> <a href="/actores">Ver Mas</a></span></p>
+    </div>
+        <div class="card-columns">
+            @forelse ($actores as $actor)
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="pelicula/{{$actor->id}}">
+                            {{$actor->first_name}} {{$actor->last_name}}
+                        </a>
+                    </h5>
+                        <span> Rating: {{$pelicula->rating}} </span>
+                </div>
+            </div>
+            @empty
+            <h2>No hay Actores</h2>
+            @endforelse
+        </div>
+
+        <div class="titulos">
+            <p>Ultimos Generos
+                <span> <a href="/generos">Ver Mas</a></span></p>
+        </div>
+            <div class="card-columns">
+                @forelse ($generos as $genero)
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="pelicula/{{$actor->id}}">
+                                {{$genero->name}}
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+                @empty
+                <h2>No hay Actores</h2>
+                @endforelse
+            </div>
+
+</div>
+@endsection

@@ -24,6 +24,7 @@ class PeliculasController extends Controller
 
     public function edit($id)
     {
+        $this->middleware('auth');
         $pelicula = Movie::find($id);
         $generos = Genre::All();
         $fecha = $pelicula->release_date;

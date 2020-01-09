@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <div class="container">
     @if (session('mensaje'))
     <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
@@ -26,7 +26,9 @@
     @endforelse
 </div>
 
-<div class="container mt-5">
-    {{ $peliculas->links() }}
+<div class="container mt-5 pb-5">
+    <div class="row">
+        {{$peliculas->links()}}
+    </div>
 </div>
 @endsection

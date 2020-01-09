@@ -1,3 +1,5 @@
-<div class="mt-5">
-    <h4>Footer</h4>
-</div>
+<footer>
+    <div class="copyright">
+        <p>Ezequiel Stuarts - Examen Final - Digital House</p>
+    </div>
+</footer>

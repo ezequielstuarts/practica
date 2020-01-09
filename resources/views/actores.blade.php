@@ -32,7 +32,9 @@
         @endforelse
     </div>
 
-    <div class="container mt-5">
-        {{$actores->links()}}
+    <div class="container mt-5 pb-5">
+        <div class="row">
+            {{$actores->links()}}
+        </div>
     </div>
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <h1>Generos</h1>
 <ul>
     @foreach ($generos as $genero)
@@ -13,10 +13,14 @@
                 </li>
             @endforeach
         </ul>
-    </li>   
+    </li>
     @endforeach
 </ul>
 
-{{ $generos->links() }}
+<div class="container mt-5 pb-5">
+    <div class="row">
+        {{$generos->links()}}
+    </div>
+</div>
 
 @endsection
