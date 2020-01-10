@@ -19,6 +19,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    {{-- Datepicker --}}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.css') }}" >
+    {{-- EndDatepicker --}}
+
 </head>
 <body>
     <div id="app">

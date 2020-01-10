@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Editar pelicula</h1>
-    <form action="/pelicula/edit/{{$pelicula->id}}" method="post" class="mt-5">
-        @method("patch")
-        {{csrf_field()}}
-                <div class="form-row">
+<h1>Editar pelicula</h1>
+<form action="/pelicula/edit/{{$pelicula->id}}" method="post" class="mt-5">
+    @method("patch")
+    {{csrf_field()}}
+    <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="title">Titulo</label>
                         <input type="text" class="form-control" name="title" value=" {{$pelicula->title}} ">
@@ -17,7 +17,22 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="release_date">Fecha de lanzamiento</label>
-                        <input type="datetime" class="form-control" id="release_date" name="release_date" value="{{$pelicula->release_date}}">
+
+                        <script>
+                            $(function() {
+                                $('.dates #release_date').datepicker({
+                                'format': 'yyyy-mm-dd',
+                                'autoclose': true,
+                                'language': "es"
+                                });
+                            });
+                        </script>
+                        <div class="dates">
+                            <input type="text" class="form-control" id="release_date" name="release_date" value="{{$pelicula->release_date}}" placeholder="YYYY-MM-DD" autocomplete="off">
+                        </div>
+
+
+
                     </div>
 
                     <div class="form-group col-md-6">
@@ -40,12 +55,11 @@
 
                             @foreach ($generos as $genero)
                                 <option value={{$genero->id}}>{{$genero->name}}</option>
-                            @endforeach
+                                @endforeach
 
-                          </select>
-
+                            </select>
+                        </div>
                     </div>
-                </div>
 
 
 
@@ -53,9 +67,10 @@
                     <option value="">Actores que trabajaron en esta película</option>
                     <span>Puede seleccionar varios con CTRL</span>
                     <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;">
-                        @foreach ($actores as $actor)
+                    @foreach ($actores as $actor)
 
-                        <option value="{{$actor->id}}">{{$actor->first_name}}{{$actor->last_name}}</option>
+                                <option value="{{$actor->id}}">{{$actor->first_name}}{{$actor->last_name}}</option>
+
                     @endforeach
                     </select>
                 </div>

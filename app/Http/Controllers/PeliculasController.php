@@ -42,17 +42,9 @@ class PeliculasController extends Controller
 
             $diff["movie_id"] = $request->movie_id;
 
+            $diff = array_diff($request->toArray(), $pelicula->toArray());
 
-            // $mysql_date = $request["release_date"];
-
-            // $mysql_date = Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s');
-
-            // $diff["release_date"] = $mysql_date;
-
-            // $diff = array_diff($request->toArray(), $pelicula->toArray());
-            // dd("request", $mysql_date, "carbon", $diff["release_date"]);
-
-            // $pelicula->update($diff);
+            $pelicula->update($diff);
             return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
 
     }
