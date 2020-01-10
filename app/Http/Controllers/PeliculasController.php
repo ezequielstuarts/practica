@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Movie;
 use App\Genre;
 use App\Actor;
@@ -38,8 +39,26 @@ class PeliculasController extends Controller
     {
 
             $pelicula = Movie::find($id);
+
             $diff["movie_id"] = $request->movie_id;
+            //dd($request["release_date"]);
+            
+            $mysql_date = $request["release_date"];
+            
+            $mysql_date = Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s');
+            //dd($mysql_date, $request["release_date"]);
+            
+            
+            $diff["release_date"] = $mysql_date;
+
+            dd("request", $mysql_date, "carbon", $diff["release_date"]);
+            
+
+            
             $diff = array_diff($request->toArray(), $pelicula->toArray());
+
+
+
             $pelicula->update($diff);
             return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
 

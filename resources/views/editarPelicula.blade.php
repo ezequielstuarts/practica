@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="release_date">Fecha de lanzamiento</label>
-                        <input type="date" class="form-control" id="release_date" name="release_date" value="{{$pelicula->release_date}}">
+                        <input type="datetime" class="form-control" id="release_date" name="release_date" value="{{$pelicula->release_date}}">
                     </div>
 
                     <div class="form-group col-md-6">
