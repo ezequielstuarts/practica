@@ -47,8 +47,10 @@
                     </div>
                 </div>
 
+
+
                 <div class="form-group col-md-6">
-                    <option value="">Películas n las que trabajo</option>
+                    <option value="">Actores que trabajaron en esta película</option>
                     <span>Puede seleccionar varios con CTRL</span>
                     <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;">
                         @foreach ($actores as $actor)
