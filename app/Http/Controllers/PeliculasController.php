@@ -30,7 +30,7 @@ class PeliculasController extends Controller
         $generos = Genre::All();
         $actores = Actor::All();
         $fecha = $pelicula->release_date;
-        $fecha = date('d-m-Y',strtotime($pelicula->release_date));
+        $fecha = date('Y-m-d',strtotime($pelicula->release_date));
         $pelicula->release_date = $fecha;
         return view ("editarPelicula", ['pelicula' => $pelicula, 'generos' => $generos, 'actores' => $actores]);
     }
