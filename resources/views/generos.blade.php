@@ -1,26 +1,32 @@
 @extends('layouts.app')
+@section('title', 'DB:Movies: Géneros')
 @section('content')
 
-<h1>Generos</h1>
-<ul>
+<section class="generos">
+    <h1>Generos</h1>
+
     @foreach ($generos as $genero)
-     <li>
-       <b> {{$genero->name}}</b>
-        <ul>
-            @foreach ($genero->peliculas as $pelicula)
+     <div class="container">
+         <b> {{$genero->name}}</b>
+         <ul>
+             @foreach ($genero->peliculas as $pelicula)
                 <li>
-                    {{$pelicula->title}}
+                 {{$pelicula->title}}
                 </li>
             @endforeach
         </ul>
-    </li>
+    </div>
     @endforeach
-</ul>
+
+    
+
+
 
 <div class="container mt-5 pb-5">
     <div class="row">
         {{$generos->links()}}
     </div>
 </div>
+</section>
 
 @endsection

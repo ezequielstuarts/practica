@@ -1,5 +1,5 @@
-
 @extends('layouts.app')
+@section('title', 'DB:Movies: Actores')
 @section('content')
 <h1>Actores</h1>
 <div class="mt-5 mb-5">

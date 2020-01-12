@@ -45,8 +45,6 @@ class ActoresController extends Controller
         $actorNuevo->rating = $request["rating"];
         $actorNuevo->favorite_movie_id = $request["pelicula_favorita"];
 
-
-
         $actorNuevo->save();
 
         $actores = Actor::all();
@@ -61,8 +59,6 @@ class ActoresController extends Controller
             $actor_movie->save();
         }
 
-
-
         return redirect()->route('actor', [$lastId]);
 
     }
@@ -70,8 +66,13 @@ class ActoresController extends Controller
 
     public function show($id)
     {
+
+        $registro = Actor::where("id",$id) ->first();
+        $next = Actor::where('id', '>', $registro->id) ->orderBy('id', 'asc')->first();
+        $prev = Actor::where('id', '<', $registro->id) ->orderBy('id', 'desc')->first();
+
         $actor = Actor::find($id);
-        return view ("actor", ['actor' => $actor]);
+        return view ("actor", ['actor' => $actor, 'registro' => $registro,'next' => $next,'prev' => $prev]);
     }
 
     public function search(Request $req)

@@ -20,8 +20,12 @@ class PeliculasController extends Controller
 
     public function show($id)
     {
+        $registro = Movie::where("id",$id)->first();
+        $next = Movie::where('id', '>', $registro->id)->orderBy('id', 'asc')->first();
+        $prev = Movie::where('id', '<', $registro->id)->orderBy('id', 'desc')->first();
+
         $pelicula = Movie::find($id);
-        return view ("pelicula", ['pelicula' => $pelicula]);
+        return view ("pelicula", ['pelicula' => $pelicula, 'registro' => $registro,'next' => $next,'prev' => $prev]);
     }
 
     public function edit($id)

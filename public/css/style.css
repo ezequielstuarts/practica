@@ -1,6 +1,8 @@
 body {
+    background-color: black;
     position: relative;
     min-height: 100vh;
+    font-family: 'Kanit', sans-serif;
 }
 
 footer {
@@ -21,3 +23,24 @@ footer {
     font-size: 15px;
     padding: 10px 10px 0;
 }
+
+.welcome, .peliculas, .generos, .editar_pelicula {
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
+
+.title_movie {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+.hide {
+	display: none;
+}
+
+.control {
+    font-size: 11px;
+    color: darkorange;
+}
+

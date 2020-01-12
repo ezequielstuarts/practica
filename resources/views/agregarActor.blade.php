@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'DB:Movies: Nuevo Actor')
 @section('content')
 
 <h1>Agregar Actor</h1>
@@ -30,9 +31,9 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <option value="">Películas en las que trabajo</option>
-                <span>Puede seleccionar varios con CTRL</span>
-                <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;">
+                <span>Películas en las que trabajo</span>
+                <span class="control">Puede seleccionar varios con CTRL</span>
+                <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;" class="form-control">
                     @foreach ($peliculas as $peli)
                     <option value="{{$peli->id}}">{{ $peli->title }}</option>
                     @endforeach
@@ -41,7 +42,7 @@
 
         </div>
         <div class="mt-3 float-right">
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-success">Guardar</button>
             <a class="btn btn-warning" href="/actores/agregarActor">Limpiar</a>
             <a class="btn btn-danger" href="/actores">Cancelar</a>
         </div>
