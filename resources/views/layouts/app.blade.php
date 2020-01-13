@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Krub:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,9 +36,9 @@
             @yield('content')
         </main>
 
-        <footer>
+        {{-- <footer>
             @include('partials.footer')
-        </footer>
+        </footer> --}}
     </div>
 </body>
 </html>

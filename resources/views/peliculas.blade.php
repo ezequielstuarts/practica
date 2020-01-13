@@ -14,10 +14,15 @@
     <div class="card-columns">
         @forelse ($peliculas as $pelicula)
         <div class="card">
+            @if ($pelicula->cover)
+            <img src=" {{$pelicula->cover->url_small}} " class="card-img-top" alt="{{$pelicula->title}}">
+            @else
+                <img src="img/noimg_small.png " class="card-img-top" alt="{{$pelicula->title}}">
+            @endif
             <div class="card-body">
                 <h5 class="card-title">
                     <a href="pelicula/{{$pelicula->id}}">
-                        {{$pelicula->title}}
+                        <b>{{$pelicula->title}}</b>
                     </a>
                 </h5>
                     <span> Rating: {{$pelicula->rating}} </span>

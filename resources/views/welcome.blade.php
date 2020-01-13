@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="welcome">
-    <div class="container">
+    <div class="col-12">
         <div class="titulos">
             <span>Peliculas con mejor Rating</span>
             <a href="{{ route('peliculas') }}"> <div class="float-right"><i class="fas fa-plus-circle fa-lg"></i></div> </a></span>
@@ -11,6 +11,11 @@
             @forelse ($peliculas as $pelicula)
     
             <div class="card">
+                @if ($pelicula->cover)
+                    <img src=" {{$pelicula->cover->url_small}} " class="card-img-top" alt="{{$pelicula->title}}">
+                @else
+                    <img src="img/noimg_small.png " class="card-img-top" alt="{{$pelicula->title}}">
+                @endif
                 <div class="card-body">
                     <h5 class="card-title">
                         <a href="pelicula/{{$pelicula->id}}">

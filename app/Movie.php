@@ -19,4 +19,8 @@ class Movie extends Model
         return $this->belongsToMany("App\Actor", "actor_movie", "movie_id", "actor_id");
     }
 
+    public function cover() {
+        return $this->belongsTo('App\Cover', 'id');
+    }
+
 }

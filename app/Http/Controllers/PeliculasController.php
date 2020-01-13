@@ -9,15 +9,16 @@ use App\Genre;
 use App\Actor;
 
 
+
 class PeliculasController extends Controller
 {
     public function index()
-    {
+    {       
         $peliculas = Movie::paginate(15);
         return view ("peliculas", ['peliculas' => $peliculas]);
     }
-
-
+    
+    
     public function show($id)
     {
         $registro = Movie::where("id",$id)->first();

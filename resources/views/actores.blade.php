@@ -37,4 +37,5 @@
             {{$actores->links()}}
         </div>
     </div>
+
 @endsection
