@@ -8,11 +8,15 @@
             <div class="btn btn-primary">Agregar un actor</div>
         </a>
     </div>
-
-
+    
     <div class="card-columns">
         @forelse ($actores as $actor)
-            <div class="card">
+        <div class="card actores">
+            @if ($actor->profile)
+                <img src="{{$actor->profile->url_profile}}" alt="{{$actor->first_name}} {{$actor->last_name}}" class="img-thumbnail">
+            @else
+                <img src="/img/noimg_big.png" class="card-img-top" alt="{{$pelicula->title}}">
+            @endif
                 <div class="card-body">
                     <h5 class="card-title">{{$actor->first_name}} {{$actor->last_name}}</h5>
                     <p class="card-text">@if ($actor->peliculaFavorita)

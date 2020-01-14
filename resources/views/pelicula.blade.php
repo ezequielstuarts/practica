@@ -6,7 +6,7 @@
     <p class="title_movie">{{$pelicula->title}} ({{date('Y', strtotime($pelicula->release_date))}})</p>
 </div>
     
-    <div class="">
+    <div class="actor">
         <div class="row">
             <div class="col-md-6">
                 @if ($pelicula->cover)
@@ -37,14 +37,21 @@
                 @if ($pelicula->genero)
                 <p><b>Género: </b><span class="badge badge-success"> {{$pelicula->genero->name}}</span></p>
                 @endif
-                @if ($pelicula->actores)
+                <div class="reparto">
+                    @if ($pelicula->actores)
                     <p><b>Reparto: </b></p>
-                    <ul>
+                    <ul class="list-unstyled">
                         @foreach ($pelicula->actores as $actor)
-                        <li>{{$actor->first_name}} {{$actor->last_name}}</li>
+                            <li class="media">
+                                <img src="{{$actor->profile->url_profile}}" class="mr-3 mb-3" alt="{{$actor->first_name}} {{$actor->last_name}}">
+                              <div class="media-body">
+                                <h5 class="mt-0 mb-1">{{$actor->first_name}} {{$actor->last_name}}</h5>
+                              </div>
+                            </li>
                         @endforeach
                     </ul>
                 @endif
+                </div>
             </div>
         </div>
     </div>

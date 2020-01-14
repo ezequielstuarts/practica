@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cover extends Model
+class ActorProfile extends Model
 {
-    public $table = "covers";
+    public $table = "actor_profile";
     //public $primarykey = "id";
     //public $timestamps = "";
-    protected $fillable = ['url_small', 'url_big', 'movie_id'];
+    protected $fillable = ['actor_id', 'url_profile'];
 
 }

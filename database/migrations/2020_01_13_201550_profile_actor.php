@@ -13,7 +13,7 @@ class ProfileActor extends Migration
      */
     public function up()
     {
-        Schema::create('profileActor', function (Blueprint $table) {
+        Schema::create('actor_profile', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('actor_id')->unsigned();
@@ -29,6 +29,6 @@ class ProfileActor extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profileActor');
+        Schema::dropIfExists('actor_profile');
     }
 }
