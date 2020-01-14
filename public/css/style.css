@@ -1,7 +1,7 @@
 body {
     position: relative;
     min-height: 100vh;
-    font-family: 'Krub', sans-serif!important;
+    font-family: "Krub", sans-serif !important;
     background-color: black;
     color: white;
 }
@@ -16,17 +16,21 @@ footer {
     text-align: center;
 }
 
-.titulos, .titulos span {
+.titulos,
+.titulos span {
     font-size: 25px;
     padding: 20px 0 20px;
-    color: blanchedalmond!important;
+    color: blanchedalmond !important;
 }
 .titulos a {
     font-size: 15px;
     padding: 10px 10px 0;
 }
 
-.welcome, .peliculas, .generos, .editar_pelicula {
+.welcome,
+.peliculas,
+.generos,
+.editar_pelicula {
     margin-top: 30px;
     margin-bottom: 150px;
 }
@@ -39,16 +43,13 @@ footer {
     padding-bottom: 15px;
 }
 
-.control {
-    font-size: 11px;
-    color: darkorange;
-}
-.card-title, span {
-    color: black!important;
+.card-title,
+span {
+    color: black !important;
 }
 
 .fondo-movie {
-    background-color: red!important;
+    background-color: red !important;
     width: 100%;
 }
 .pelicula_descripcion {
@@ -65,21 +66,24 @@ footer {
     overflow: hidden;
     overflow-y: auto;
 }
-.reparto img{
+.reparto img {
     width: 64px;
 }
 
-.profile_movie img{
+.profile_movie img {
     width: 100%;
 }
-.profile_movie{
-    border-radius: 100%!important;
+.profile_movie {
+    border-radius: 100% !important;
     width: 50px;
     display: inline-flex;
 }
-.profile_movie p{
+.profile_movie p {
     padding-left: 25px;
     line-height: 20px;
+}
+.agregar_actor span {
+    color: white !important;
 }
 
 .actor ul {
@@ -87,4 +91,8 @@ footer {
 }
 .actor ul li {
     list-style: none;
+}
+.login,
+.register {
+    color: black;
 }

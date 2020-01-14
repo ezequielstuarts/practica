@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Actor;
 use App\Movie;
 use App\ActorMovie;
+use App\ActorProfile;
 
 
 class ActoresController extends Controller
@@ -44,7 +45,6 @@ class ActoresController extends Controller
         $actorNuevo->last_name = $request["last_name"];
         $actorNuevo->rating = $request["rating"];
         $actorNuevo->favorite_movie_id = $request["pelicula_favorita"];
-
         $actorNuevo->save();
 
         $actores = Actor::all();
@@ -58,6 +58,11 @@ class ActoresController extends Controller
             $actor_movie->actor_id = $lastId;
             $actor_movie->save();
         }
+
+        $img_profile = new ActorProfile();
+        $img_profile->actor_id = $lastId;
+        $img_profile->url_profile = $request["url"];
+        $img_profile->save();
 
         return redirect()->route('actor', [$lastId]);
 
