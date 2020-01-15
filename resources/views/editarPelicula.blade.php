@@ -63,30 +63,7 @@
                     </div>
                 </div>
                 
-                
-                
-                <div class="form-group col-md-6">
-                    <option value="">Actores que trabajaron en esta película</option>
-                    <span>Puede seleccionar varios con CTRL</span>
-                    
-                    <select multiple="multiple" name="peliculasActuadas[]" id="peliculasActuadas" style="width:100%;height:200px;">
-                        @foreach ($actores as $actor)
-                        <option value="{{$actor->id}}">{{$actor->id}}{{$actor->last_name}}</option>
-                        @endforeach
-                    </select>
-                    
-                    
-                    <ul>
-                        @foreach ($pelicula->actores as $actor)
-                        @if ( $pelicula->actor_id == $actor->_id)
-                        <li>{{$actor->first_name}} {{$actor->last_name}}</li>
-                        @endif
-                        @endforeach
-                    </ul>
-                    
-                </div>
-                
-                
+
                 <div class="mt-3 float-right">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a class="btn btn-warning" href="/pelicula/{{$pelicula->id}}">Cancelar</a>

@@ -40,7 +40,14 @@
             <div class="card-columns">
                 @forelse ($actores as $actor)
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body card_actors">
+                        <div class="profile_actor_home">
+                            @if ($actor->profile)
+                                <img src=" {{$actor->profile->url_profile}} " class="img-thumbnail img-fluid" alt="">
+                            @else
+                                <img src="/img/noimg_big.png" class="card-img-top" alt="">
+                            @endif
+                        </div>
                         <h5 class="card-title">
                             <a href="pelicula/{{$actor->id}}">
                                 {{$actor->first_name}} {{$actor->last_name}}
@@ -60,7 +67,7 @@
             </div>
                 <div class="card-columns">
                     @forelse ($generos as $genero)
-                    <div class="card">
+                    <div class="card card_genres">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="pelicula/{{$actor->id}}">

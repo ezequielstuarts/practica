@@ -41,7 +41,7 @@
                 @if ($pelicula->actores)
                 <p><b>Reparto: </b></p>
                 <ul class="list-unstyled">
-                    @foreach ($pelicula->actores as $actor)
+                    @forelse ($pelicula->actores as $actor)
                         <li class="media">
                             @if($actor->profile)
                             <img src="{{$actor->profile->url_profile}}" class="mr-3 mb-3" alt="{{$actor->first_name}} {{$actor->last_name}}">
@@ -52,7 +52,9 @@
                             <h5 class="mt-0 mb-1">{{$actor->first_name}} {{$actor->last_name}}</h5>
                             </div>
                         </li>
-                    @endforeach
+                        @empty
+                        <hp>No hay Actores en este momento</p>
+                    @endforelse
                 </ul>
             @endif
             </div>
@@ -60,13 +62,13 @@
     </div>
 </div>
 
-<div class="row mt-5">
-    <div class="col-6">
+<div class="row mt-5 justify-content-around">
+    <div class="col-4">
         @if($prev)
         <a href="/pelicula/{{$prev->id}}" class="btn btn-outline-success btn-block"> &#171; Anterior </a>
         @endif
     </div>
-    <div class="col-6 text-right">
+    <div class="col-4 text-right">
         @if($next)
         <a href="/pelicula/{{$next->id}}" class="btn btn-outline-success btn-block"> Siguiente &#187; </a>
         @endif
@@ -80,7 +82,7 @@
             <div class="btn btn-outline-secondary mt-5">Volver</div>
         </a>
 
-        <a href="{{route('pelicula.edit', $pelicula->id)}}">
+        <a class="ml-3" href="{{route('pelicula.edit', $pelicula->id)}}">
             <div class="btn btn-outline-info mt-5">Editar</div>
         </a>
     </div>

@@ -35,7 +35,7 @@ footer {
     margin-bottom: 150px;
 }
 
-.title_movie {
+.title_movie, .title_actor {
     font-size: 35px;
     font-weight: 700;
     text-align: center;
@@ -95,4 +95,31 @@ span {
 .login,
 .register {
     color: black;
+}
+.profile_actor_home img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.card_actors {
+    text-align: center;
+}
+.card_actors {
+    text-align: center;
+    filter: grayscale(100%);
+}
+.card_actors:hover {
+    filter: grayscale(0%);
+}
+
+.card_genres {
+    text-align: center;
+    font-weight: 700;
+}
+.card_genres h5{
+    font-size: 25px;
+    font-weight: 600;
+}
+.modal {
+    color: black!important;
 }

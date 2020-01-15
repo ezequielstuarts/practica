@@ -17,6 +17,18 @@ class ActoresController extends Controller
         return view ("actores", ['actores' => $actores]);
     }
 
+    public function show($id)
+    {
+
+        $registro = Actor::where("id",$id) ->first();
+        $next = Actor::where('id', '>', $registro->id) ->orderBy('id', 'asc')->first();
+        $prev = Actor::where('id', '<', $registro->id) ->orderBy('id', 'desc')->first();
+
+        $actor = Actor::find($id);
+        
+        return view ("actor", ['actor' => $actor, 'registro' => $registro,'next' => $next,'prev' => $prev]);
+    }
+
     public function create() {
         $peliculas = Movie::all();
         return view ("agregarActor", ['peliculas' => $peliculas]);
@@ -64,29 +76,12 @@ class ActoresController extends Controller
         $img_profile->url_profile = $request["url"];
         $img_profile->save();
 
-        return redirect()->route('actor', [$lastId]);
+        $lastActor = Actor::find($lastId);
+
+        return redirect()->route('actor', [$lastId])->with('mensaje', 'Agregaste a'. $lastActor->first_name .' '. $lastActor->last_name .' a la base de datos. ');
+
+        
 
     }
-
-
-    public function show($id)
-    {
-
-        $registro = Actor::where("id",$id) ->first();
-        $next = Actor::where('id', '>', $registro->id) ->orderBy('id', 'asc')->first();
-        $prev = Actor::where('id', '<', $registro->id) ->orderBy('id', 'desc')->first();
-
-        $actor = Actor::find($id);
-        return view ("actor", ['actor' => $actor, 'registro' => $registro,'next' => $next,'prev' => $prev]);
-    }
-
-    public function search(Request $req)
-    {
-        $input = $req->all();
-        $nombre = $input["nombre"];
-        $actor = Actor::where('first_name', 'like', '%' . $nombre . '%')->orWhere ('last_name', 'like', '%' . $nombre . '%')->get();
-        return view ("buscar", ['actor' => $actor] );
-    }
-
 
 }
