@@ -2,8 +2,8 @@
 @section('title', 'DB:Movies: Nuevo Actor')
 @section('content')
 
+<section class="agregar_actor">
 <h1>Agregar Actor</h1>
-<div class="agregar_actor">
     <form action="/actores/agregarActor" method="post" enctype="multipart/form-data" class="mt-5">
         {{csrf_field()}}
             <div class="form-row">
@@ -52,7 +52,7 @@
             </div>
 
     </form>
-</div>
+</section>
 
 
 

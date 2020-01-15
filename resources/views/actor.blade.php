@@ -2,15 +2,14 @@
 @section('title', 'DB:Movies: Actor '.$actor->first_name.' '.$actor->last_name)
 @section('content')
 
-<p class="title_actor">Actor: {{$actor->first_name}} {{$actor->last_name}} </p>
 
 @if (session('mensaje'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ session('mensaje') }}</h4>
-    </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>{{ session('mensaje') }}</h4>
+</div>
 @endif
-
-<div class="peliculas">
+<div class="actor">
+    <p class="title_actor">Actor: {{$actor->first_name}} {{$actor->last_name}} </p>
     <div class="row">
         <div class="col-md-6">
             @if ($actor->profile)
@@ -22,11 +21,11 @@
         </div>
         <div class="col-md-6 pelicula_descripcion">
             @if ($actor->rating)
-                <p><b>Rating:</b><span class="badge badge-info"> {{$actor->rating}} </span></p>
+                <p><i class="fas fa-chart-line"></i><b> Rating:</b><span class="badge badge-info"> {{$actor->rating}} </span></p>
             @endif
 
             @if ($actor->peliculaFavorita)
-                <p><b>Película favorita:</b> {{$actor->peliculaFavorita->title}} </p>
+                <p><i class="fas fa-star"></i><b> Película favorita:</b> {{$actor->peliculaFavorita->title}} </p>
             @endif
 
             <div class="reparto">
@@ -54,7 +53,6 @@
     </div>
 </div>
 
-
 <div class="row mt-5 justify-content-around">
     <div class="col-3">
         @if($prev)
@@ -68,7 +66,7 @@
     </div>
 </div>
 
-<div class="float-right">
+<div class="row mb-5">
     <a href="/actores">
         <div class="btn btn-outline-secondary mt-5">Volver</div>
     </a>

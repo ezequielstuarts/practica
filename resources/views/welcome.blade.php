@@ -9,8 +9,8 @@
         </div>
         <div class="card-columns">
             @forelse ($peliculas as $pelicula)
-    
-            <div class="card">
+
+            <div class="card zoom">
                 @if ($pelicula->cover)
                     <img src=" {{$pelicula->cover->url_small}} " class="card-img-top" alt="{{$pelicula->title}}">
                 @else
@@ -23,7 +23,7 @@
                         </a>
                     </h5>
                         <span> Rating: {{$pelicula->rating}} </span>
-    
+
                         @if ($pelicula->updated_at)
                             <p> Ultima Acualización: {{$pelicula->updated_at->diffForHumans()}} </p>
                         @endif
@@ -40,7 +40,7 @@
             <div class="card-columns">
                 @forelse ($actores as $actor)
                 <div class="card">
-                    <div class="card-body card_actors">
+                    <div class="card-body card_actors zoom">
                         <div class="profile_actor_home">
                             @if ($actor->profile)
                                 <img src=" {{$actor->profile->url_profile}} " class="img-thumbnail img-fluid" alt="">
@@ -49,7 +49,7 @@
                             @endif
                         </div>
                         <h5 class="card-title">
-                            <a href="pelicula/{{$actor->id}}">
+                            <a href="actor/{{$actor->id}}">
                                 {{$actor->first_name}} {{$actor->last_name}}
                             </a>
                         </h5>
@@ -60,7 +60,7 @@
                 <h2>No hay Actores</h2>
                 @endforelse
             </div>
-    
+
             <div class="titulos">
                 <span>Últimos géneros agregados</span>
             <a href="{{ route('generos') }}"> <div class="float-right"><i class="fas fa-plus-circle fa-lg"></i></div> </a></span>
@@ -70,7 +70,7 @@
                     <div class="card card_genres">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="pelicula/{{$actor->id}}">
+                                <a href="generos">
                                     {{$genero->name}}
                                 </a>
                             </h5>
@@ -82,4 +82,5 @@
                 </div>
             </div>
 </section>
+
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'DB:Movies: Peliculas')
 @section('content')
-
 <section class="peliculas">
+    <h1>Listado de películas</h1>
     <div class="container">
         @if (session('mensaje'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
@@ -13,7 +13,7 @@
     </div>
     <div class="card-columns">
         @forelse ($peliculas as $pelicula)
-        <div class="card">
+        <div class="card zoom">
             @if ($pelicula->cover)
             <img src=" {{$pelicula->cover->url_small}} " class="card-img-top" alt="{{$pelicula->title}}">
             @else
@@ -25,7 +25,7 @@
                         <b>{{$pelicula->title}}</b>
                     </a>
                 </h5>
-                    <span> Rating: {{$pelicula->rating}} </span>
+                    <i style="color:#000" class="fas fa-chart-line"></i><span> Rating: {{$pelicula->rating}} </span>
                     <a href="pelicula/{{$pelicula->id}}"><div class="float-right"><i class="fas fa-plus-circle fa-lg"></i></div></a>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <h2>No hay Peliculas</h2>
         @endforelse
     </div>
-    
+
     <div class="container mt-5 pb-5">
         <div class="row">
             {{$peliculas->links()}}
