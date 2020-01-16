@@ -22,7 +22,7 @@
                             {{$pelicula->title}}
                         </a>
                     </h5>
-                        <span> Rating: {{$pelicula->rating}} </span>
+                        <span> <i class="fas fa-chart-line"> </i> Rating: {{$pelicula->rating}} </span>
 
                         @if ($pelicula->updated_at)
                             <p> Ultima Acualización: {{$pelicula->updated_at->diffForHumans()}} </p>
@@ -53,7 +53,7 @@
                                 {{$actor->first_name}} {{$actor->last_name}}
                             </a>
                         </h5>
-                            <span> Rating: {{$pelicula->rating}} </span>
+                            <span><i class="fas fa-chart-line"></i> Rating: {{$pelicula->rating}} </span>
                     </div>
                 </div>
                 @empty

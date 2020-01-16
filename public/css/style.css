@@ -8,10 +8,10 @@ body {
 
 footer {
     /* position: absolute; */
-    background-color: #b6b6b6;
+    background-color: #000;
     width: 100%;
     font-size: 16px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
 .fondo_movies {
@@ -44,9 +44,13 @@ footer {
 .actores,
 .agregar_actor,
 .pelicula,
-.actor {
-    margin-top: 80px;
+.actor,
+.login {
+    margin-top: 100px;
     margin-bottom: 50px;
+}
+.info_pelicula {
+    padding-bottom: 20px;
 }
 h1 {
     font-size: 40px;
@@ -94,7 +98,7 @@ span {
     color: black;
 }
 .reparto {
-    background-color: rgb(26, 26, 26);
+    background-color: rgba(0, 0, 0, 0.651);
     margin: 0 auto;
     padding: 15px;
     height: 250px;
@@ -157,4 +161,33 @@ span {
 }
 .modal {
     color: black !important;
+}
+.fa-chart-line {
+    color: darkorange;
+    padding-right: 7px;
+}
+
+.fa-calendar-alt {
+    color: green;
+    padding-right: 7px;
+}
+.fa-trophy {
+    color: sandybrown;
+    padding-right: 7px;
+}
+.fa-clock {
+    color: darkred;
+    padding-right: 7px;
+}
+.fa-venus-mars {
+    color: mediumseagreen;
+    padding-right: 7px;
+}
+.fa-star {
+    color: mediumvioletred;
+    padding-right: 7px;
+}
+hr {
+    color: rgb(136, 136, 136);
+    border: solid 0.3px;
 }

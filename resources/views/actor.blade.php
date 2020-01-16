@@ -21,11 +21,11 @@
         </div>
         <div class="col-md-6 pelicula_descripcion">
             @if ($actor->rating)
-                <p><i class="fas fa-chart-line"></i><b> Rating:</b><span class="badge badge-info"> {{$actor->rating}} </span></p>
+                <p><i class="fas fa-chart-line"></i><b> Rating: </b><span class="badge badge-info"> {{$actor->rating}} </span></p>
             @endif
 
             @if ($actor->peliculaFavorita)
-                <p><i class="fas fa-star"></i><b> Película favorita:</b> {{$actor->peliculaFavorita->title}} </p>
+                <p><i class="fas fa-star"></i><b> Película favorita: </b> {{$actor->peliculaFavorita->title}} </p>
             @endif
 
             <div class="reparto">
@@ -43,9 +43,9 @@
                                     <h5 class="mt-0 mb-1">{{$pelicula->title}}</h5>
                                 </div>
                             </li>
-                            @empty
-                            <p>No contiene ninguna pelicula</p>
-                            @endforelse
+                        @empty
+                        <p>No contiene ninguna pelicula</p>
+                        @endforelse
                     </ul>
                 @endif
             </div>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<section class="fondo_movies" style="background: url({{$pelicula->cover->url_big}});background-size: cover;">
+@if (!empty($pelicula->cover->url_big))
+    <section class="fondo_movies" style="background: url({{$pelicula->cover->url_big}});background-size: cover;">
+@endif
 <div class="fondo_movies">
 @section('title', 'DB:Movies: Pelicula '.$pelicula->title)
 @section('content')
@@ -7,11 +9,15 @@
     <div class="container mt-3">
         <p class="title_movie">{{$pelicula->title}} ({{date('Y', strtotime($pelicula->release_date))}})</p>
     </div>
-
-    <div class="peliculas">
+    <div class="">
+        @if (($pelicula->info->info_movie))
+        <div class="container info_pelicula">
+            <p>{{$pelicula->info->info_movie}}</p>
+        </div>
+        @endif
         <div class="row">
-            <div class="col-md-6">
-                @if ($pelicula->cover)
+            <div class="col-md-6 mb-3">
+                @if (!empty($pelicula->cover))
                         <img src=" {{$pelicula->cover->url_big}} " class="img-thumbnail img-fluid" alt="{{$pelicula->title}}">
                 @else
                     <img src="/img/noimg_big.png" class="card-img-top" alt="{{$pelicula->title}}">
@@ -53,7 +59,8 @@
                                 @endif
                                 <div class="media-body">
                                 <h5 class="mt-0 mb-1">{{$actor->first_name}} {{$actor->last_name}}</h5>
-                                </div>
+                                <hr>
+                            </div>
                             </li>
                             @empty
                             <hp>No hay Actores en este momento</p>

@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CoversSeeder::class);
         $this->call(ProfileActorSeeder::class);
+        $this->call(InfoMovieSeeder::class);
     }
 }

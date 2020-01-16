@@ -17,7 +17,7 @@
     </div>
     <div class="card-columns">
         @forelse ($actores as $actor)
-        <div class="card actores">
+        <div class="card">
             @if ($actor->profile)
                 <img src="{{$actor->profile->url_profile}}" alt="{{$actor->first_name}} {{$actor->last_name}}" class="img-thumbnail">
             @else
@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$actor->first_name}} {{$actor->last_name}}</h5>
                     <p class="card-text">@if ($actor->peliculaFavorita)
-                        Película favorita: {{$actor->peliculaFavorita->title}}
+                        <b>Película favorita: </b> <i>{{$actor->peliculaFavorita->title}}</i>
                         @endif</p>
                         <p><i style="color:#000" class="fas fa-chart-line"></i> <span class="badge badge-info">Rating: {{$actor->rating}} </span></p>
                     <a href="actor/{{$actor->id}}">

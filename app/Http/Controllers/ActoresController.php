@@ -62,19 +62,23 @@ class ActoresController extends Controller
         $actores = Actor::all();
         $lastId = $actores->last()->id;
 
-        $pelisActuadas = $request["peliculasActuadas"];
-        for ($i = 0; $i < count($pelisActuadas); $i++)
-        {
-            $actor_movie = new ActorMovie();
-            $actor_movie->movie_id = $pelisActuadas[$i];
-            $actor_movie->actor_id = $lastId;
-            $actor_movie->save();
+        if ($request["url"]) { 
+            $pelisActuadas = $request["peliculasActuadas"];
+            for ($i = 0; $i < count($pelisActuadas); $i++)
+            {
+                $actor_movie = new ActorMovie();
+                $actor_movie->movie_id = $pelisActuadas[$i];
+                $actor_movie->actor_id = $lastId;
+                $actor_movie->save();
+            }
         }
 
-        $img_profile = new ActorProfile();
-        $img_profile->actor_id = $lastId;
-        $img_profile->url_profile = $request["url"];
-        $img_profile->save();
+        if ($request["url"]) {
+            $img_profile = new ActorProfile();
+            $img_profile->actor_id = $lastId;
+            $img_profile->url_profile = $request["url"];
+            $img_profile->save();
+        }
 
         $lastActor = Actor::find($lastId);
 

@@ -32,7 +32,8 @@
     <div id="app">
         @include('partials.navbar')
 
-        <main class="py-4 container">
+        <main class="container">
+        {{-- <main class="py-4 container"> --}}
             @yield('content')
         </main>
 
