@@ -49,10 +49,12 @@
         <div class="form-group col-md-6">
             <label for="awards">Género</label>
             <select class="custom-select" name="genre_id">
+                @if($pelicula->genero->id)
                 <option value="{{$pelicula->genero->id}}">{{$pelicula->genero->name}}</option>
-                    @foreach ($generos as $genero)
-                        <option value={{$genero->id}}>{{$genero->name}}</option>
-                    @endforeach
+                @endif
+                @foreach ($generos as $genero)
+                    <option value="{{$genero->id}}">{{$genero->name}}</option>
+                @endforeach
             </select>
         </div>
     </div>
@@ -74,12 +76,10 @@
         <hr>
     </div>
 
-
     <div class="mt-3 float-right">
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a class="btn btn-warning" href="/pelicula/{{$pelicula->id}}">Cancelar</a>
     </div>
-
     </form>
 
 </section>

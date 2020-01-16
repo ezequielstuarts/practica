@@ -17,8 +17,8 @@
             @else
                 <img src="/img/noimg_big.png" class="card-img-top" alt="">
             @endif
-
         </div>
+        
         <div class="col-md-6 pelicula_descripcion">
             @if ($actor->rating)
                 <p><i class="fas fa-chart-line"></i><b> Rating: </b><span class="badge badge-info"> {{$actor->rating}} </span></p>
@@ -27,7 +27,6 @@
             @if ($actor->peliculaFavorita)
                 <p><i class="fas fa-star"></i><b> Película favorita: </b> {{$actor->peliculaFavorita->title}} </p>
             @endif
-
             <div class="reparto">
                 @if ($actor->peliculas)
                     <p><b>Peliculas que actuo: </b></p>

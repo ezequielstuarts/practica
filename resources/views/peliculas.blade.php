@@ -25,15 +25,14 @@
                         <b>{{$pelicula->title}}</b>
                     </a>
                 </h5>
-                    <i style="color:#000" class="fas fa-chart-line"></i><span> Rating: {{$pelicula->rating}} </span>
-                    <a href="pelicula/{{$pelicula->id}}"><div class="float-right"><i class="fas fa-plus-circle fa-lg"></i></div></a>
+                <i style="color:#000" class="fas fa-chart-line"></i><span> Rating: {{$pelicula->rating}} </span>
+                <a href="pelicula/{{$pelicula->id}}"><div class="float-right"><i class="fas fa-plus-circle fa-lg"></i></div></a>
             </div>
         </div>
         @empty
         <h2>No hay Peliculas</h2>
         @endforelse
     </div>
-
     <div class="container mt-5 pb-5">
         <div class="row">
             {{$peliculas->links()}}

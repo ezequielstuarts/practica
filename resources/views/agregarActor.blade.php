@@ -39,9 +39,9 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                        <span class="label">Pegue aqui la url de la imagen del actor</span>
-                        <input type="text" class="form-control" placeholder="URL foto actor" name="url" value="{{old("url")}}">
-                        <p class="text-danger pl-1 pt-1">{{ $errors->first('url') }}</p>
+                    <span class="label">Pegue aqui la url de la imagen del actor</span>
+                    <input type="text" class="form-control" placeholder="URL foto actor" name="url" value="{{old("url")}}">
+                    <p class="text-danger pl-1 pt-1">{{ $errors->first('url') }}</p>
                 </div>
 
             </div>
