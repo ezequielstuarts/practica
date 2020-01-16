@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Movie;
 use App\Genre;
 use App\Actor;
+use App\Cover;
 
 
 
@@ -42,15 +43,23 @@ class PeliculasController extends Controller
 
     public function update(Request $request, $id)
     {
+        $pelicula = Movie::find($id);
+        $diff["movie_id"] = $request->movie_id;
+        $diff = array_diff($request->toArray(), $pelicula->toArray());
 
-            $pelicula = Movie::find($id);
+        if ($diff["url_small"] != "") {
+            $cover = Cover::find($id);
+            $cover->url_small = $diff["url_small"];
+            $cover->update();
+        }
+        if ($diff["url_big"] != "") {
+            $cover = Cover::find($id);
+            $cover->url_big = $diff["url_big"];
+            $cover->update();
+        }
 
-            $diff["movie_id"] = $request->movie_id;
-
-            $diff = array_diff($request->toArray(), $pelicula->toArray());
-
-            $pelicula->update($diff);
-            return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
+        $pelicula->update($diff);
+        return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
 
     }
 }

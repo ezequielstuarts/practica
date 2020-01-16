@@ -10,7 +10,7 @@
         <p class="title_movie">{{$pelicula->title}} ({{date('Y', strtotime($pelicula->release_date))}})</p>
     </div>
     <div class="">
-        @if (($pelicula->info->info_movie))
+        @if ($pelicula->info)
         <div class="container info_pelicula">
             <p>{{$pelicula->info->info_movie}}</p>
         </div>
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 @if (!empty($pelicula->cover))
-                        <img src=" {{$pelicula->cover->url_big}} " class="img-thumbnail img-fluid" alt="{{$pelicula->title}}">
+                    <img src=" {{$pelicula->cover->url_big}} " class="img-thumbnail img-fluid" alt="{{$pelicula->title}}">
                 @else
                     <img src="/img/noimg_big.png" class="card-img-top" alt="{{$pelicula->title}}">
                 @endif

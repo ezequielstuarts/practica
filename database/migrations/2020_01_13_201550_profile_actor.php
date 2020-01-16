@@ -15,10 +15,10 @@ class ProfileActor extends Migration
     {
         Schema::create('actor_profile', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->integer('actor_id')->unsigned();
             $table->foreign('actor_id')->references('id')->on('actors');
             $table->string('url_profile');
+            $table->timestamps();
         });
     }
 

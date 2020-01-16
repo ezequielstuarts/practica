@@ -25,7 +25,7 @@ class ActoresController extends Controller
         $prev = Actor::where('id', '<', $registro->id) ->orderBy('id', 'desc')->first();
 
         $actor = Actor::find($id);
-        
+
         return view ("actor", ['actor' => $actor, 'registro' => $registro,'next' => $next,'prev' => $prev]);
     }
 
@@ -62,7 +62,7 @@ class ActoresController extends Controller
         $actores = Actor::all();
         $lastId = $actores->last()->id;
 
-        if ($request["url"]) { 
+        if ($request["peliculasActuadas"]) {
             $pelisActuadas = $request["peliculasActuadas"];
             for ($i = 0; $i < count($pelisActuadas); $i++)
             {
@@ -72,7 +72,6 @@ class ActoresController extends Controller
                 $actor_movie->save();
             }
         }
-
         if ($request["url"]) {
             $img_profile = new ActorProfile();
             $img_profile->actor_id = $lastId;
@@ -84,7 +83,7 @@ class ActoresController extends Controller
 
         return redirect()->route('actor', [$lastId])->with('mensaje', 'Agregaste a'. $lastActor->first_name .' '. $lastActor->last_name .' a la base de datos. ');
 
-        
+
 
     }
 

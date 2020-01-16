@@ -132,7 +132,8 @@ span {
     list-style: none;
 }
 .login,
-.register {
+.register,
+.reset {
     color: black;
 }
 .profile_actor_home img {

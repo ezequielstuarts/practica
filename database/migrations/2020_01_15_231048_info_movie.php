@@ -15,10 +15,10 @@ class InfoMovie extends Migration
     {
         Schema::create('info_movie', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->integer('movie_id')->unsigned();
-            $table->foreign('movie_id')->references('id')->on('movies');            
+            $table->foreign('movie_id')->references('id')->on('movies');
             $table->text('info_movie');
+            $table->timestamps();
         });
     }
 
