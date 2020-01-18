@@ -8,7 +8,7 @@ Route::get('/welcome', 'WelcomeController@index')->name('welcome');
 
 Route::get('/peliculas', 'PeliculasController@index')->name('peliculas');
 
-Route::get('/pelicula/{id}', "PeliculasController@show")->name('pelicula.{id}');
+Route::get('/pelicula/{id}', "PeliculasController@show")->name('pelicula');
 
 Route::get('/actores', 'ActoresController@index')->name('actores');
 

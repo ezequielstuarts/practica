@@ -58,9 +58,7 @@ class ActoresController extends Controller
         $actorNuevo->rating = $request["rating"];
         $actorNuevo->favorite_movie_id = $request["pelicula_favorita"];
         $actorNuevo->save();
-
-        $actores = Actor::all();
-        $lastId = $actores->last()->id;
+        $lastId = $actorNuevo->id;
 
         if ($request["peliculasActuadas"]) {
             $pelisActuadas = $request["peliculasActuadas"];

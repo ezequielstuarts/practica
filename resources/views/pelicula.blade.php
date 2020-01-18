@@ -3,8 +3,13 @@
     <section class="fondo_movies" style="background: url({{$pelicula->cover->url_big}});background-size: cover;">
 @endif
 <div class="fondo_movies">
-@section('title', 'DB:Movies: Pelicula '.$pelicula->title)
-@section('content')
+    @section('title', 'DB:Movies: Pelicula '.$pelicula->title)
+    @section('content')
+    @if (session('mensaje'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4>{{ session('mensaje') }}</h4>
+    </div>
+    @endif
 <section class="pelicula">
     <div class="container mt-3">
         <p class="title_movie">{{$pelicula->title}} ({{date('Y', strtotime($pelicula->release_date))}})</p>

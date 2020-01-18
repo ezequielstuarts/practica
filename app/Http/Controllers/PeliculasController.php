@@ -59,7 +59,7 @@ class PeliculasController extends Controller
         }
 
         $pelicula->update($diff);
-        return redirect()->route('peliculas')->with('mensaje', 'Pelicula Actualizada '.$pelicula->title);
+        return redirect()->route('pelicula', [$id])->with('mensaje', 'La pelicula fue aztualizada');;
 
     }
 }

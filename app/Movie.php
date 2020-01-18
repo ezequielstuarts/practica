@@ -20,11 +20,11 @@ class Movie extends Model
     }
 
     public function cover() {
-        return $this->belongsTo('App\Cover', 'id');
+        return $this->hasOne('App\Cover', 'id');
     }
 
     public function info() {
-        return $this->belongsTo('App\InfoMovie', 'id');
+        return $this->hasOne('App\InfoMovie', 'id');
     }
 
 }
